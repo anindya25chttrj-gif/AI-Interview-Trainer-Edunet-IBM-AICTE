@@ -1,4 +1,7 @@
 # AI-Powered Interview Trainer (Native watsonx.ai RAG Pipeline)
+# AI Interview Trainer
+
+🚀 **Live Deployment URL:** [Launch App](https://ai-interview-trainer-edunet-ibm-aic.vercel.app)
 
 An enterprise-grade, high-contrast, minimalist AI Interview Trainer built utilizing a localized **Retrieval-Augmented Generation (RAG)** architecture. The system ingests foundational career frameworks, stores structural text representations inside a multidimensional matrix vector space, and utilizes **Meta-Llama-3.3-70B-Instruct** hosted on **IBM watsonx.ai** to simulate precise technical, behavioral, and resume-grounded mock interviews.
 
