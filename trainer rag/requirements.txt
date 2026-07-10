@@ -1,6 +1,5 @@
 Flask
 pypdf
 ibm-watsonx-ai
-sentence-transformers
 numpy
 python-dotenv
