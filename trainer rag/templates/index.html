@@ -231,8 +231,8 @@
     }
     /* Custom Responsive Overrides for Mobile Views */
 /* Custom Responsive Overrides for Mobile Views */
+    /* Custom Responsive Overrides for Mobile Views */
     @media (max-width: 768px) {
-        /* Deconstruct the fixed desktop layout grid into a single responsive column flow */
         .shell {
             display: flex;
             flex-direction: column;
@@ -240,14 +240,13 @@
             overflow: hidden;
         }
 
-        /* Keep the top header bar standard size */
         .topbar {
             height: 56px;
             flex-shrink: 0;
             padding: 0 16px;
         }
 
-        /* Stack the resume upload box on top and let it adapt to the width */
+        /* Keep the top panel compact so it doesn't hog space */
         .panel-resume {
             width: 100% !important;
             height: auto !important;
@@ -256,29 +255,33 @@
             flex-shrink: 0;
         }
 
-        /* Expand the chat room container to dynamically fill the remaining view height */
+        /* Force the chat container to explicitly take up the rest of the screen */
         .panel-chat {
-            flex: 1;
-            height: auto !important;
-            overflow: hidden;
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            height: calc(100vh - 200px) !important; /* Explicit viewport math */
+            overflow: hidden !important;
         }
 
-        /* Allow chat bubbles to adapt better to narrower screens */
+        /* Make sure the scrollable chat log area behaves correctly */
         #chat-log {
-            padding: 16px;
+            flex: 1 !important;
+            overflow-y: auto !important;
+            padding: 16px !important;
         }
 
         .msg {
-            max-width: 100%;
+            max-width: 100% !important;
         }
 
-        /* Pin the bottom message typing bar firmly above the virtual phone keyboard */
+        /* Lock the input bar cleanly at the very bottom of the flex container */
         .input-bar {
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-            z-index: 100;
-            background: #ffffff;
+            position: relative !important;
+            width: 100% !important;
+            flex-shrink: 0 !important;
+            background: #ffffff !important;
+            border-top: 1px solid #111111 !important;
         }
     }
   </style>
