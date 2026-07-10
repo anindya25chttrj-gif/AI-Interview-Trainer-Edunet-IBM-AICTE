@@ -230,52 +230,54 @@
       cursor: not-allowed;
     }
     /* Custom Responsive Overrides for Mobile Views */
-/* Custom Responsive Overrides for Mobile Views */
-    /* Custom Responsive Overrides for Mobile Views */
     @media (max-width: 768px) {
+        /* Kill the rigid desktop grid styling completely on mobile */
         .shell {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100vh !important;
+            height: -webkit-fill-available !important; /* Fixes mobile browser address bar layout jumps */
+            overflow: hidden !important;
         }
 
         .topbar {
-            height: 56px;
-            flex-shrink: 0;
-            padding: 0 16px;
+            height: 56px !important;
+            flex-shrink: 0 !important;
         }
 
-        /* Keep the top panel compact so it doesn't hog space */
+        /* Keep the upload box at the top small and clean */
         .panel-resume {
             width: 100% !important;
             height: auto !important;
+            max-height: 140px !important; /* Keep it tight so chat fits */
             border-right: none !important;
-            border-bottom: 1px solid #111111;
-            flex-shrink: 0;
+            border-bottom: 1px solid #111111 !important;
+            flex-shrink: 0 !important;
+            overflow-y: auto !important;
         }
 
-        /* Force the chat container to explicitly take up the rest of the screen */
+        /* Enforce the chat log view to claim all remaining phone screen area */
         .panel-chat {
             flex: 1 !important;
             display: flex !important;
             flex-direction: column !important;
-            height: calc(100vh - 200px) !important; /* Explicit viewport math */
             overflow: hidden !important;
+            height: auto !important;
         }
 
-        /* Make sure the scrollable chat log area behaves correctly */
+        /* Make the conversation area perfectly scrollable inside the bounds */
         #chat-log {
             flex: 1 !important;
             overflow-y: auto !important;
             padding: 16px !important;
+            -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling momentum */
         }
 
         .msg {
             max-width: 100% !important;
         }
 
-        /* Lock the input bar cleanly at the very bottom of the flex container */
+        /* Pin the input bar solidly at the bottom of the flex interface layout */
         .input-bar {
             position: relative !important;
             width: 100% !important;
