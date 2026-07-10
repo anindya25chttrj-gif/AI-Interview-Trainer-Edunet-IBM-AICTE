@@ -230,49 +230,57 @@
       cursor: not-allowed;
     }
     /* Custom Responsive Overrides for Mobile Views */
-@media (max-width: 768px) {
-    /* Stack the sidebar and main chat on top of each other instead of side-by-side */
-    body, .main-container {
-        display: flex;
-        flex-direction: column;
-        overflow-x: hidden;
-    }
+/* Custom Responsive Overrides for Mobile Views */
+    @media (max-width: 768px) {
+        /* Deconstruct the fixed desktop layout grid into a single responsive column flow */
+        .shell {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    /* Make the resume ingestion panel fit the top screen width */
-    .sidebar, .left-panel {
-        width: 100% !important;
-        position: relative !important;
-        height: auto !important;
-        padding: 15px !important;
-        border-right: none !important;
-        border-bottom: 1px solid #e0e0e0;
-    }
+        /* Keep the top header bar standard size */
+        .topbar {
+            height: 56px;
+            flex-shrink: 0;
+            padding: 0 16px;
+        }
 
-    /* Force the main chat space to occupy the remaining viewport */
-    .chat-container, .right-panel {
-        width: 100% !important;
-        height: calc(100vh - 200px) !important; 
-        padding: 10px !important;
-    }
+        /* Stack the resume upload box on top and let it adapt to the width */
+        .panel-resume {
+            width: 100% !important;
+            height: auto !important;
+            border-right: none !important;
+            border-bottom: 1px solid #111111;
+            flex-shrink: 0;
+        }
 
-    /* Keep text clear, readable, and properly padded on small mobile screens */
-    .chat-bubble {
-        max-width: 90% !important;
-        font-size: 14px !important;
-    }
+        /* Expand the chat room container to dynamically fill the remaining view height */
+        .panel-chat {
+            flex: 1;
+            height: auto !important;
+            overflow: hidden;
+        }
 
-    /* Pin the chat input dock firmly to the bottom viewport boundary */
-    .input-container {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        z-index: 9999 !important;
-        background: #ffffff !important;
-        padding: 10px !important;
-        box-sizing: border-box !important;
+        /* Allow chat bubbles to adapt better to narrower screens */
+        #chat-log {
+            padding: 16px;
+        }
+
+        .msg {
+            max-width: 100%;
+        }
+
+        /* Pin the bottom message typing bar firmly above the virtual phone keyboard */
+        .input-bar {
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            background: #ffffff;
+        }
     }
-}
   </style>
 </head>
 <body>
